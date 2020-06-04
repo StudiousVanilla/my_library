@@ -5,10 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
     <link rel="stylesheet" href="style.css ">
+    <script src="https://kit.fontawesome.com/ec2a80e7f4.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <form action="">
+        <input type="text" id="inputTitle"" placeholder="title" class="bookInput" name="bookTitle">
+        <input type="text" id="inputAuthor" placeholder="author" class="bookInput" name = "bookAuthor">
+        <input type="text" id="inpurGenre"  placeholder="genre" class="bookInput" name = "bookGenre">
+        <label class = "checkboxLabel" for="inputRead">Have read</label>
+        <input type="checkbox" id="inputRead" value="read" class="bookInput" name="bookRead">
+        <input type="text" id="inputDate" placeholder="date read" class="bookInput" name = "bookDate">
+        <input type="submit" value="Add Book" class="submitBook" id="submitBook">
+    </form>
+    
     <div id = "container">
-
+        <div id = 'legend'>
+            <p>Title</p>
+            <p>Author</p>
+            <p>Genre</p>
+            <p>Read</p>
+            <p>Delete   </p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
