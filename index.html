@@ -11,14 +11,10 @@
     <script src="https://kit.fontawesome.com/ec2a80e7f4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form id ='add-book'action="">
-        <input type="text" id="inputTitle"" placeholder="title" class="bookInput" name="bookTitle">
-        <input type="text" id="inputAuthor" placeholder="author" class="bookInput" name = "bookAuthor">
-        <input type="text" id="inputGenre"  placeholder="genre" class="bookInput" name = "bookGenre">
-        <label class = "checkboxLabel" for="inputRead">Read</label>
-        <input type="checkbox" id="inputRead" class="bookInput" name="bookRead" value = 'true'>
-        <input type="submit" value="Add Book" class="submitBook" id="submitBook">
-    </form>
+    <div id="header">
+        <h1>Oisín's Library</h1><button type="button" id="open-form" class ="btn">Add Book</button>
+    </div>
+
     <div id = 'legend'>
         <p>Title</p>
         <p>Author</p>
@@ -28,11 +24,25 @@
     </div>
     
     <div id = "container">
+        <ul id = 'book-list'></ul>
         
     </div>
-    <script src="script.js"></script>
-    
 
+    <div id='form-container'>
+        <form id="add-book-form">
+            <label for="title"><b>Title</b></label>
+            <input type="text" name="title">
+            <label for="author"><b>Author</b></label>
+            <input type="text" name="author">
+            <label for="genre"><b>Genre</b></label>
+            <input type="text" name="genre">
+            <label for="has-read"><b>Have you read it?</b></label>
+            <input class = "have-read-check" type="checkbox" name ="has-read">
+            <button type="submit" class="btn" id="submit-book-form">Add Book</button>
+            <button type="button" class="btn-cancel" id="close-form">Close</button>
+        </form>
+    </div>
 
+    <script src="script.js"></script>   
 </body>
 </html>
