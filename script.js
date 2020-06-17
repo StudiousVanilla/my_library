@@ -130,7 +130,6 @@ class Library {
         bookList.appendChild(li);
 
         hasRead.addEventListener('click',()=>{
-            console.log(doc.data().hasRead)
             database.collection('books').doc(doc.id).update({
                 hasRead: (doc.data().hasRead)*-1
             })
@@ -143,12 +142,10 @@ class Library {
 
     }
 
-    updateDatabase = function(){
-        database.collection('books').orderBy('title').onSnapshot(snapshot => {
+    updateDatabase = function(order){
+        database.collection('books').orderBy(order).onSnapshot(snapshot => {
             let changes = snapshot.docChanges();
-            console.log(changes);
             changes.forEach(change => {
-
                 const bookList = document.querySelector('#book-list');
                 if(change.type == 'added'){
                     this.renderBookList(change.doc);
@@ -167,13 +164,32 @@ class Library {
         })
     }
 
+
+    orderDatabase = function(){
+        this.updateDatabase('title')
+        const filterForm = document.querySelector('#filter-form')
+        const bookList = document.querySelector('#book-list')
+        filterForm.addEventListener('submit',(e)=>{
+            e.preventDefault()
+            bookList.innerHTML = ""
+            this.updateDatabase(filterForm.bookFilter.value)
+        })
+    }
+
+
+    callLibraryFunctions(){
+        this.orderDatabase();
+    }
+
 }
+
+
 
 let screenDisplay = new ScreenDisplay()
 screenDisplay.contentDisplay()
 
-let library = new Library();
-library.updateDatabase()
-
 let form = new Form()
 form.submitForm();
+
+let library = new Library();
+library.callLibraryFunctions()

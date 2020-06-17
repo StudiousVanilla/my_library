@@ -13,6 +13,16 @@
 <body>
     <div id="header">
         <h1>Oisín's Library</h1><button type="button" id="open-form" class ="btn">Add Book</button>
+        <form id = 'filter-form'>
+            <label id="book-filter-label" for="bookFilter">Filter Books</label>
+            <select id="book-filter" name="bookFilter">
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+              <option value="genre">Genre</option>
+              <option value="hasRead">Read</option>
+            </select>
+            <input class = 'btn' id = "filter-submit" type="submit">
+          </form>
     </div>
 
     <div id = 'legend'>
